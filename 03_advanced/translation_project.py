@@ -15,6 +15,7 @@ class BioMolecule(object):
         self.name = name
         self.mass = mass
 
+
     # 1. Write setter and getter methods for all attributes.
     #    Use @property decorators as dicussed in the lecture
     # 2. In the setter methods check for the type of each attribute.
