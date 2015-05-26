@@ -158,8 +158,12 @@ class Polymerase(BioMoleculeCount):
     A polymerase that can elongate nucleotide molecules. This could be used to derive special
     RNA and DNA polymerases.
     """
-
+    def __init__(self, mid, name):
+        super(Polymerase, self).__init__(mid, name)
     # TODO: implement Polymerase
+
+
+
     pass
 
 
@@ -167,5 +171,8 @@ class RNAPolymeraseII(Polymerase):
     """
     A polymerase that generates mRNAs from DNA sequences.
     """
+    
+
+
     # TODO: implement RNAPolymeraseII
     pass
