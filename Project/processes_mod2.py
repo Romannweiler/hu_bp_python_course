@@ -2,6 +2,8 @@ import random
 import molecules_mod1 as mol
 import numpy.random as npr
 import time
+from Input.KnowledgeBase import KnowledgeBase as kb
+import model
 
 
 class Process(object):
@@ -131,6 +133,12 @@ class Translation(Process):
         return protein
 
 
+
+
+
+
+
+
 class Transcription(Process):
     """
     Implements mRNA transcription from genes on the chromosome.
@@ -139,29 +147,41 @@ class Transcription(Process):
     def __init__(self, id, name):
         super(Transcription, self).__init__(id, name)
 
-        
-    def Transcript(self):
-
-        self.DNA = DNA
+        self.__mRNAs = []
 
 
 
-
-
-        global MRNA_Liste
 
         
+    def transcribe(self):
 
-        pol1 = mol.Polymerase(1,'pol1',0,0)
+        #global MRNA_Liste
 
-        GeneDatabank = [3, 'hNoggin','ATGAATTATGGTTGA']
+        StopCodonDict = ['TAG', 'TAA' ,'TGA']
 
-        rGene = mol.Gene(3,GeneDatabank[1],DNA)
+        StartCodon = 'ATG'
 
-        mRNA = mol.MRNA(rGene.mid,rGene.name,'',0,1)
+        DNA = ''
 
-        TransTime = float(len(rGene.sequence))*0.075
 
+        while DNA[0:3]!=StartCodon:
+            GeneNumber = npr.randint(1,10)
+            SetInd = 3-len(str(GeneNumber))
+            GeneInd = 'MG_'+'0'*SetInd+str(GeneNumber)
+            GetSeq = kb()
+            try:
+
+                DNA = GetSeq.get_sequence(GeneInd)
+            except:
+                pass
+
+        mRNA = mol.MRNA(0,'','',0,0)
+
+        #mRNA.mid = int(GeneNumber)
+
+        mRNA.name = 'mRNA_'+str(GeneNumber)
+
+        TransTime = float(len(DNA))*0.075
 
 
 
@@ -172,47 +192,64 @@ class Transcription(Process):
         j = 0
 
 
-        if DNA[j*3:j*3+3] == StartCodon:
-            while DNA[j*3:j*3+3] not in StopCodonDict:
-                mRNA.sequence += DNA[j*3:j*3+3]               
-                j = j+1
-            mRNA.sequence += DNA[j*3:j*3+3]
+        if str(DNA[j*3:j*3+3]) == StartCodon:
+            while (3*j)<(len(DNA)) and str(DNA[j*3:j*3+3]) not in StopCodonDict:
+                mRNA.sequence += str(DNA[j*3:j*3+3])
+                j=j+1
+            mRNA.sequence += str(DNA[j*3:j*3+3])
             mRNA.sequence = mRNA.sequence.replace('T','U')
         else:
-            while DNA[j*3:j*3+3] not in StartCodon:
+            while str(DNA[j*3:j*3+3]) not in StartCodon:
                 j = j+1
-            while DNA[j*3:j*3+3] not in StopCodonDict:
-                mRNA.sequence += DNA[j*3:j*3+3]
-                j = j+1
-            mRNA.sequence += DNA[j*3:j*3+3]
+            while (3*j)<(len(DNA)):
+                if str(DNA[j*3:j*3+3]) not in StopCodonDict:
+                    mRNA.sequence += str(DNA[j*3:j*3+3])
+                    j=j+1
+            mRNA.sequence += str(DNA[j*3:j*3+3])
             mRNA.sequence = mRNA.sequence.replace('T','U')
 
 
-        if  mRNA.sequence in MRNA_Liste:
-            SEQ_Pos = MRNA_Liste.index(mRNA.sequence)
-            MRNA_Liste[SEQ_Pos+1] = MRNA_Liste[SEQ_Pos+1]+1
-        else:
-            MRNA_Liste += [mRNA.mid, mRNA.name, mRNA.sequence, TransTime, mRNA.count]
+        #if  mRNA.sequence in MRNA_Liste:
+            #SEQ_Pos = MRNA_Liste.index(mRNA.sequence)
+            #MRNA_Liste[SEQ_Pos+2] = MRNA_Liste[SEQ_Pos+2]+1
+        #else:
+            #MRNA_Liste += [mRNA.mid, mRNA.name, mRNA.sequence, TransTime, mRNA.count]
 
-                    #print MRNA_Liste
+        
+        #print MRNA_Liste
         #print str(TransTime) + "s"
 
+        return mRNA
 
-   """ def output(self, mid):
 
-        if mid in MRNA_Liste:
-            ID_pos = MRNA_Liste.index(mid)
-            name = MRNA_Liste[ID_pos+1]
-            sequence = MRNA_Liste[ID_pos+2]
-            time = MRNA_Liste[ID_pos+3]
-            count = MRNA_Liste[ID_pos+1]
-        else:
-            print 'no mRNA with such an ID transcribed'"""
+
+    def update(self, model):
+        prot = None
+
+        j=0
+
+        while j < 20:
+            prot = self.transcribe()
+            if prot.name in model.states:
+                model.states[prot.name].append(prot)
+            else:
+                model.states[prot.name] = [prot]
+            j = j+1
+
+
+
+
+
+
+
 
 
 if __name__ == "__main__":
+    c = model.Model()
     MRNA_Liste = []
     TR = Transcription(1,'digga')
+    TR.update(c)
+    #TR.update_trans(c)
 
 
 

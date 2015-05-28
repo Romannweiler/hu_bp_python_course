@@ -1,4 +1,4 @@
-import processes as proc
+import processes_mod2 as proc
 import molecules as mol
 
 class Model(object):
@@ -11,14 +11,27 @@ class Model(object):
 
         # initiate states
         self.ribosomes = {'Ribosomes': mol.Ribosome('Ribosomes', 'Ribosomes', 10)}
-        self.mrnas = {'MRNA_{0}'.format(i): mol.MRNA(i, 'MRNA_{0}'.format(i), "UUUUUUUUUUAA") for i in xrange(50)}
-        self.states.update(self.ribosomes)
-        self.states.update(self.mrnas)
+        self.mrnas = {}
+
+       
+        #self.mrnas = {'MRNA_1':mol.MRNA(1,'MRNA_1',"AGTGGTATTATATAG")}
+#                    {MRNA_1, 2, 3 usw...          : ID, Name  (MRNA_1, 2, 3...) , sequence }     von 0 bis 50
+#  strings zusammenbauen "{0} {1}".format("a","b")
+       
+
+
+        self.states.update(self.ribosomes) # updates 
+        self.states.update(self.mrnas) #
 
         # initiate processes
         translation = proc.Translation(1, "Translation")
+        transcription = proc.Transcription(1, "Transcription")
+        
+
         translation.set_states(self.mrnas.keys(), self.ribosomes.keys())
-        self.processes = {"Translation":translation}
+        
+
+        self.processes = {"Translation":translation, "Transcription":transcription}
 
     def step(self):
         """
@@ -35,10 +48,19 @@ class Model(object):
         """
         for s in xrange(steps):
             self.step()
-            if log: # This could be an entry point for further logging
+            if log:
+             # This could be an entry point for further logging
+
                 # print count of each protein to the screen
-                print '\r{}'.format([len(self.states[x]) for x in self.states.keys() if "Protein_" in x]),
-            
+                print '\r{}'.format([len(self.states[x]) for x in self.states.keys() if "mRNA_" in x]),
+            #        string aus: Laenge von Array (states)     x laeuft durch states.keys, BDG: Protein_ kommt in states.key-Eintrag vor
+            #                                   Anzahl der Proteine
+
 if __name__ == "__main__":
+
+    #print 'sds'
+
     c = Model()
-    c.simulate(100, log=True)
+    c.simulate(30, log=True)
+
+
