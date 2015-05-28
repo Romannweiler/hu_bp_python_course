@@ -1,0 +1,99 @@
+Table S3H. Media composition,,,
+"In silico media composition. The media composition is based on the experimentally characterized composition of the SP-4 media on which M. genitalium is generally cultured, with additional essential molecules added to support in silico cellular growth. Non-gaseous molecules are added to the extracellular environment at the beginning of the simulation and either drain or accumulate over the length of the simulation. Baseous molecules are continuously perfused into the extracellular environment and are maintained at a constant concentration throughout the simulation.",,,
+,,,
+ID,Name,Concentration mM,Comments
+AC,acetate,"0,304753",
+AD,adenine,"0,148000","Set to value in Serrano et al M. pneumoniae minimal media [PUB_0614].
+"
+AEPP,2-aminoethylphosphonate,"1,000000","Added to media to allow phosphonate uptake and fit observed phosphate transporter (MG_410-2) gene essentiality.
+
+Typical phosphonate concetrations:
+
+• Brine: 0.1-10 mg/L [PUB_0769]
+• Fresh water: 0.02 mg/L [PUB_0769]
+• Tetrahymena: 0-10 mM [PUB_0770]
+• Penicillium notatum media sole phosphorous source: 1 mM [PUB_0771]
+• E. coli medium organic phosphate source: 2 mM [PUB_0772]
+• Microbial growth media: 4 mM [PUB_0773]
+"
+AlaAla,L-alanyl-L-alanine,"7,275520",
+anthranilate,2-aminobenzoic acid,"0,000184",
+ArgArg,L-arginyl-L-arginine,"3,055440",
+AsnAsn,L-asparaginyl-L-asparagine,"0,056133",
+AspAsp,L-aspartyl-L-aspartic Acid,"7,819620",
+CA,calcium ion,"1,968600",
+CHOL,choline,"0,019430",
+CL,chloride ion,"97,079100",
+CO,cobalt ion,"0,480031",Set to same concentration as Mg2+.
+CO2,carbon dioxide,"1,700100",Incubator provides 5% CO2 = 38 mmHg. Equilbrium constant of solvation is 29.41 L*atm/mol [PUB_0171].
+COA,coenzyme A,"0,001637",
+CU,cupric ion,"0,000356",
+CysCys,L-cysteinyl-L-cysteine,"3,181370",
+CYTD,cytidine,"0,082231",Set to value in Serrano et al M. pneumoniae minimal media [PUB_0614].
+DA,deoxyadenosine,"0,019901",
+DC,deoxycytidine,"0,025526",
+DDCA,Dodecanoate (n-C12:0),"0,326127",SP4 media composition calculations estimated SP4 media contains 13 mg DDCA / L. However the simulation suggests additional DDCA is required for growth. Concentration set to 65 mg / L to support growth.
+DG,deoxyguanosine,"0,018710",
+DHF,dihydrofolate,"0,000028",
+DT,thymidine,"0,021492",
+FAD,"flavin adenine dinucleotide, oxidized","0,000068",
+FE3,ferric iron,"0,005358",
+GL,glycerol,"0,325756",SP4 media composition calculations estimated SP4 media contains 6 mg glycerol / L. However the simulation suggests additional glycerol is required for growth. Concentration set to 30 mg / L to support growth.
+GLC,D-Glucose,"32,946600",
+GlnGln,L-glutaminyl-L-glutamine,"0,715127",
+GluGlu,L-glutamyl-L-glutamic acid,"13,477600",
+GlyGly,L-glycyl-L-glycine,"7,829890",
+GN,guanine,"0,132340",Set to value in Serrano et al M. pneumoniae minimal media [PUB_0614].
+H,hydrogen ion,"0,500000",pH 7.5 is equal to a concentration of 3.16e-5 mM. However the simulation suggests additional hydrogen is required for growth. Concentration set to 0.5 mM to support growth.
+H2O,water,"54.579,200000",
+H2O2,hydrogen peroxide,"0,029399",Concentration set to 1 g/mL.
+HDCA,Hexadecanoate (n-C16:0),"0,313216",SP4 media composition calculations estimated SP4 media contains 16 mg HDCA / L. However the simulation suggests additional HDCA is required for growth. Concentration set to 80 mg / L to support growth.
+HDCEA,Hexadecenoate (n-C16:1),"0,315708",SP4 media composition calculations estimated SP4 media contains 16 mg HDCEA / L. However the simulation suggests additional HDCEA is required for growth. Concentration set to 80 mg / L to support growth.
+HisHis,L-histidyl-L-histidine,"2,386540",
+HYXN,hypoxanthine,"0,007259",
+IleIle,L-isoleucyl-L-isoleucine,"4,065890",
+INOS,myo-inositol,"0,000139",
+K,potassium ion,"9,317610",
+LeuLeu,L-leucyl-L-leucine,"7,819270",
+LIPOATE,lipoate,"0,000244","Needed for model to predict positive growth. Added at concentration of 0.05 mg/L.
+"
+LysLys,L-lysyl-L-lysine,"6,303160",
+m5dC,5-methyl-2'-deoxycytidine,"0,000207",
+MetMet,L-methionyl-L-methionine,"1,794970",
+MG,magnesium ion,"0,480031",
+MN,manganese ion,"0,480031",Set to same concentration as Mg2+.
+MOBD,Molybdate,"0,480031",Set to same concentration as Mg2+.
+NA,sodium ion,"99,387200",
+NAC,nicotinate,"0,000102",
+NAD,"nicotinamide adenine dinucleotide, oxidized","0,005284",
+NADP,"nicotinamide adenine dinucleotide phosphate, oxidized","0,000674",
+NI,nickel,"0,010000",Set to value used by Krishnaswamy and Wilson to study nickel accumulation in E. coli [PUB_0765].
+O2,oxygen,"0,273011",Incubator provides ~21% O2 = 160 mmHg [PUB_0171]. Equilbrium constant of solvation is 769.2 L*atm/mol [PUB_0171].
+OCDCA,octadecanoate (n-C18:0),"0,317496",SP4 media composition calculations estimated SP4 media contains 18.5 mg OCDCA / L. However the simulation suggests additional OCDCA is required for growth. Concentration set to 90 mg / L to support growth.
+OCDCEA,octadecenoate (n-C18:1),"0,319770",SP4 media composition calculations estimated SP4 media contains 18.4 mg OCDCEA / L. However the simulation suggests additional OCDCEA is required for growth. Concentration set to 90 mg / L to support growth.
+penicillin_G,penicillin G,"0,000000",
+PhePhe,L-phenylalanyl-L-phenylalanine,"3,403850",
+PI,phosphate,"1,501410",
+PL5P,Pyridoxal 5'-phosphate,"0,000171",
+ProPro,L-prolyl-L-proline,"8,247280",
+PTRC,putrescine,"0,100000",Set to spermidine concentration.
+PYDX,Pyridoxal,"0,000075",
+RIBFLV,"riboflavin, oxidized","0,000420",
+SerSer,L-seryl-L-serine,"5,376100",
+SO4,sulphate,"0,673983",
+SPMD,spermidine,"0,100000",Set to value in Serrano et al M. pneumoniae minimal media for spermine [PUB_0614].
+STEROL,cholesterol,"0,439930",
+THF,"5,6,7,8-Tetrahydrofolate","0,000169",Originally set to value for folic acid. However fast growing cells may exhaust this folic acid. THF concentration now set to 25X that of folic acid.
+THM,thiamine,"0,000116",
+ThrThr,L-threonyl-L-threonine,"4,704920",
+THY,thymine,"0,079290",Set to value in Serrano et al M. pneumoniae minimal media [PUB_0614].
+TrpTrp,L-trytophanyl-L-trytophan,"0,313168",
+TTDCA,tetradecanoate (n-C14:0),"0,307879",SP4 media composition calculations estimated SP4 media contains 14.9 mg TTDCA / L. However the simulation suggests additional TTDCA is required for growth. Concentration set to 70 mg / L to support growth.
+TTDCEA,tetradecenoate (n-C14:1),"0,310633",SP4 media composition calculations estimated SP4 media contains 14.75 mg TTDCEA / L. However the simulation suggests additional TTDCEA is required for growth. Concentration set to 70 mg / L to support growth.
+TWEEN80,Tween 80; Polyoxyethylene (20) sorbitan monooleate; polysorbate 80,"0,001909",
+TyrTyr,L-tyrosyl-L-tyrosine,"1,125530",
+URA,uracil,"0,178433",Set to value in Serrano et al M. pneumoniae minimal media [PUB_0614].
+UTP,UTP,"0,001041",
+ValVal,L-valyl-L-valine,"5,871010",
+XAN,xanthine,"0,004301",
+ZN,zinc ion,"0,006499",

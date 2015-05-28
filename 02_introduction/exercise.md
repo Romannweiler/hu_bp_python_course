@@ -30,7 +30,7 @@ HU Berlin
     1. Pull changes made to the repository fugufisch/hu_bp_python_course into your fork:
        - `git remote add --track master upstream https://github.com/fugufisch/hu_bp_python_course.git`
        - `git fetch upstream`
-       - `git merge upstream/master`
+       - `git merge upstream/master -m 'say something'`
        - `git push origin master`
 
     2. If there is still time left, play with git! 
