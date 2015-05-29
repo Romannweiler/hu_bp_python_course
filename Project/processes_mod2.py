@@ -165,7 +165,7 @@ class Transcription(Process):
 
 
         while DNA[0:3]!=StartCodon:
-            GeneNumber = npr.randint(1,10)
+            GeneNumber = npr.randint(1,470)
             SetInd = 3-len(str(GeneNumber))
             GeneInd = 'MG_'+'0'*SetInd+str(GeneNumber)
             GetSeq = kb()
